@@ -198,6 +198,8 @@ void externalSort(string input, string output, int limit)
         H.h.at(0) = tmp;
         H.heapify(0);
     }
+    for(int i = 0; i < k; i++)
+        tempfile[i].close();
     out.close();
 }
 
