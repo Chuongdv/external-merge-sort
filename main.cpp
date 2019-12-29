@@ -147,7 +147,7 @@ void externalSort(string input, string output, int limit)
             tempfile[k].open(buffer, ios::out);
             mergeSort(a, 0, i - 1);
             for(int j = 0; j < i; j++)
-                tempfile[k]<< a[j] << " ";
+                tempfile[k]<< setprecision(2) << fixed << a[j] << " ";
             i = 0;
             k++;
         }
@@ -159,7 +159,7 @@ void externalSort(string input, string output, int limit)
     tempfile[k].open(buffer, ios::out);
     mergeSort(a, 0, i - 1);
     for(int j = 0; j < i; j++)
-        tempfile[k]<< a[j] << " ";
+        tempfile[k]<<  setprecision(2) << fixed << a[j] << " ";
     k++;
     for(int i = 0; i < k; i++)
         tempfile[i].close();
