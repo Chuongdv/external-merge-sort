@@ -140,12 +140,11 @@ void externalSort(string input, string output, int limit)
         i++;
         if(i == limit)
         {
-            string tmpname = "file";
-            tmpname.push_back((char ('A' + k)));
-            tmpname.push_back('.');
-            tmpname+= "txt";
+            char buffer[20];
+            sprintf(buffer, "file%d.txt", k);
+            string tmpname(buffer);
             namefile.push_back(tmpname);
-            tempfile[k].open((tmpname.c_str()), ios::out);
+            tempfile[k].open(buffer, ios::out);
             mergeSort(a, 0, i - 1);
             for(int j = 0; j < i; j++)
                 tempfile[k]<< a[j] << " ";
@@ -153,12 +152,11 @@ void externalSort(string input, string output, int limit)
             k++;
         }
     }
-    string tmpname = "file";
-    tmpname.push_back((char ('A' + k)));
-    tmpname.push_back('.');
-    tmpname+= "txt";
+    char buffer[20];
+    sprintf(buffer, "file%d.txt", k);
+    string tmpname(buffer);
     namefile.push_back(tmpname);
-    tempfile[k].open((tmpname.c_str()), ios::out);
+    tempfile[k].open(buffer, ios::out);
     mergeSort(a, 0, i - 1);
     for(int j = 0; j < i; j++)
         tempfile[k]<< a[j] << " ";
@@ -208,5 +206,5 @@ int main()
 {
     string input = "number.txt";
     string output = "result.txt";
-    externalSort(input, output, 1000);
+    externalSort(input, output, 5);
 }
